@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practise Set 8</title>
+    <style>
+        .container{
+            margin: 0 auto;
+            width: max-content;
+        }
+      .circle {
+        background: radial-gradient(yellow, white 130%);
+        height: 400px;
+        width: 350px;
+        border: 2px solid black;
+        border-top-left-radius: 48%;
+        border-top-right-radius: 47%;
+        border-bottom-right-radius: 157px;
+        border-bottom-left-radius: 158px;
+        transition: all 5s linear;
+      }
+      .back{
+        position: relative;
+        width: 350px;
+        height: 110px;
+      }
+      .line {
+        height: 100px;
+        width: 10px;
+        background-color: black;
+      }
+      .left{
+        position: absolute;
+        top: 0px;
+        left: 146px;
+      }
+      .right{
+        position: absolute;
+        top: 0px;
+        right: 146px;
+      }
+      .btm{
+        position: absolute;
+        bottom: 0px;
+        right: 125px;
+        height: 10px;
+        width: 100px;
+      }
+      .btn{
+        margin-top: 10px;
+        height: 30px;
+        width: 120px;
+        border-radius: 10px;
+        background-color: rgb(250, 246, 2);
+        position: relative;
+        left: 115px;
+        text-align: center;
+        line-height: 25px;
+        font-size: 1.5em;
+        padding: 5px;
+        transition: all 0.5s linear;
+      }
+      .btn::after{
+        content: "ON";
+      }
+      .bx{
+        position: absolute;
+        /* right: 10px; */
+        width: 20px;
+        height: 20px;
+        border: 2px solid black;
+        margin: 4px 5px;
+        transform: translateX(85px);
+        transition: all 0.3s linear;
+        background-color: green;
+      }
+      .trms{
+        transform: translateX(0px);
+      }
+      .bg-wht{
+        background-color: whitesmoke;
+      }
+      .bg-red{
+        background-color: red;
+      }
+      .bg-wht::after{
+        content: "OFF";
+      }
+      .bg-white{
+        background: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bulb">
+        <div class="circle"></div>
+        <div class="back">
+          <div class="line left"></div>
+          <div class="line right"></div>
+          <div class="line btm"></div>
+        </div>
+      </div>
+      <div class="btn"><div class="bx"></div></div>
+    </div>
+  </body>
+  <script>
+    let bx = document.querySelector(".bx");
+    let btn = document.querySelector(".btn");
+    let cir = document.querySelector(".circle");
+    // bx.onclick = function(){
+    // }
+    btn.onclick = function(){
+      let audio1 = new Audio('./computer-mouse-click-351398.mp3');
+      let audio2 = new Audio('./computer-mouse-click-352734.mp3');
+      if(bx.classList.contains("bg-red")){
+          audio1.play();
+      }else{
+          audio2.play();
+      }
+        bx.classList.toggle("trms");
+        bx.classList.toggle("bg-red");
+        btn.classList.toggle("bg-wht");
+        cir.classList.toggle("bg-white");
+    }
+
+  </script>
+</html>
